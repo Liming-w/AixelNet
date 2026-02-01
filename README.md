@@ -44,13 +44,7 @@ Ensure that all required datasets are correctly prepared in their respective dir
 
 ## Run AixelNet model
 ### 1. **Download Pre-trained Datasets**
-First, you need to download the pre-trained datasets by running the script `Download_and_unzip_pretrain_datasets.sh`. This script will download and unzip the datasets required for pre-training.
-
-To run the script, use the following command, or download from [OpenTabs](https://mega.nz/file/oqUlgbCa#AwNrJD6RDTIroZbJhMUIe5hS2y_DpBGMPLnsutZcAL0):
-
-```bash
-bash Download_and_unzip_pretrain_datasets.sh
-```
+Download the pre-training datasets from [OpenTabs](https://mega.nz/file/oqUlgbCa#AwNrJD6RDTIroZbJhMUIe5hS2y_DpBGMPLnsutZcAL0) and extract them into `dataset/pretrain/`.
 
 ### 2. Bulid Pre-training Model
 After downloading the datasets, run the pre-training script using the following command:
@@ -59,7 +53,7 @@ After downloading the datasets, run the pre-training script using the following 
 nohup bash -c "python -u run_pretrain.py --num_epoch 100 --num_data 2500 --lable_data_args dataset/pretrain/ --num_k_model 6 --save_model ./AixelNet --log_path ./logs/AixelNet.txt" &
 ```
 
-### 3.Fine-tuning Model on different tables
+### 3. Fine-tuning Model on Different Tables
 Once the pre-training is complete, you can fine-tune the model with your dataset by running:
 
 ```bash
