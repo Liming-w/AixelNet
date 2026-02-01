@@ -70,5 +70,3 @@ nohup bash -c "python -u finetune_example.py \
   --finetune_data_args dataset/finetune/cls/ \
   --datasets VulNoneVul" &
 ```
-```
-
