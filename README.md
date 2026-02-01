@@ -7,7 +7,7 @@ This is the structure of the AixelNet project:
 
 ```latex
 ├── dataset/                       // Datasets for pre-training and fine-tuning
-│   ├── example/                  // Fine-tuning example dataset
+│   ├── finetune/                  // Fine-tuning example dataset
 │   ├── pretrain/                  // Pre-training datasets
 ├── AixelNet/                        // Core implementation of AixelNet model
 │   ├── tokenizer/                 // Tokenizer files for embedding
