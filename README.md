@@ -50,23 +50,23 @@ Download the pre-training datasets from [OpenTabs](https://mega.nz/file/oqUlgbCa
 After downloading the datasets, run the pre-training script using the following command:
 
 ```bash
-nohup bash -c "python -u run_pretrain.py \
+nohup python run_pretrain.py \
   --num_epoch 100 \
   --num_data 2500 \
   --lable_data_args dataset/pretrain/ \
   --num_k_model 6 \
   --save_model ./AixelNet \
-  --log_path ./logs/AixelNet.txt" &
+  --log_path ./logs/AixelNet.txt &
 ```
 
 ### 3. Fine-tuning Model on Different Tables
 Once the pre-training is complete, you can fine-tune the model with your dataset by running:
 
 ```bash
-nohup bash -c "python -u finetune_example.py \
+nohup python finetune_example.py \
   --cpt ./AixelNet-v0 \
   --num_k_model 6 \
   --model_name AixelNet \
   --finetune_data_args dataset/finetune/cls/ \
-  --datasets VulNoneVul" &
+  --datasets VulNoneVul &
 ```
