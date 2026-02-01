@@ -43,7 +43,7 @@ def log_config(args):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="AixelNet-finetune (Classification Only, KFold First Fold)")
+    parser = argparse.ArgumentParser(description="AixelNet-finetune")
     parser.add_argument(
         "--wo_arg",
         type=str,
@@ -51,7 +51,7 @@ def parse_args():
         default=None,
         help="Ablation Experiment",
     )
-    parser.add_argument("--log_name", type=str, default="AixelNet_finetune_cls_kfold1", help="task name")
+    parser.add_argument("--log_name", type=str, default="AixelNet_finetune_cls", help="task name")
     parser.add_argument("--cpt", type=str, default="./AixelNet", help="pretrain model checkpoint path")
     parser.add_argument("--model_name", type=str, default="AixelNet-base", help="pretrain model name")
     parser.add_argument("--num_k_model", type=int, default=3, help="nums of predictors")
@@ -65,7 +65,7 @@ def parse_args():
         "--datasets",
         nargs="+",
         default=None,
-        help="optional: specify downstream dataset names (csv). If None, use all csv in folder.",
+        help="specify downstream dataset names (csv)",
     )
     return parser.parse_args()
 
@@ -77,8 +77,6 @@ def extract_meta_features(df: pd.DataFrame):
 
 _args = parse_args()
 log_config(_args)
-
-# KFold (5 splits) but only use the FIRST fold
 kf = KFold(n_splits=5, random_state=42, shuffle=True)
 
 all_res = {}
@@ -86,20 +84,16 @@ model_name = _args.model_name
 
 data_dir = Path(_args.finetune_data_args)
 
-# If user specifies datasets, only use those; else load all csv in directory
-if _args.datasets:
-    task_dataset = []
-    for name in _args.datasets:
-        name = name.strip()
-        if not name.endswith(".csv"):
-            name += ".csv"
-        p = data_dir / name
-        if not p.exists():
-            available = sorted([x.name for x in data_dir.glob("*.csv")])
-            raise FileNotFoundError(f"Dataset not found: {p}. Available csv: {available[:50]}")
-        task_dataset.append(str(p))
-else:
-    task_dataset = sorted([str(p) for p in data_dir.glob("*.csv")])
+task_dataset = []
+for name in _args.datasets:
+    name = name.strip()
+    if not name.endswith(".csv"):
+        name += ".csv"
+    p = data_dir / name
+    if not p.exists():
+        available = sorted([x.name for x in data_dir.glob("*.csv")])
+        raise FileNotFoundError(f"Dataset not found: {p}. Available csv: {available[:50]}")
+    task_dataset.append(str(p))
 
 for table_file_path in task_dataset:
     data_name = Path(table_file_path).name
@@ -126,8 +120,6 @@ for table_file_path in task_dataset:
     X_test = X.iloc[val_idx]
     y_test = y.iloc[val_idx]
 
-    # NOTE: KFold is NOT stratified; to keep behavior consistent with your old code,
-    # we still stratify the inner train/val split (classification).
     X_train, X_val, y_train, y_val = train_test_split(
         train_data,
         train_label,
