@@ -44,7 +44,7 @@ Ensure that all required datasets are correctly prepared in their respective dir
 
 ## Run AixelNet model
 ### 1. **Download Pre-trained Datasets**
-Download the pre-training datasets from [OpenTabs](https://github.com/Chao-Ye/CM2)[(datasets)](https://mega.nz/file/oqUlgbCa#AwNrJD6RDTIroZbJhMUIe5hS2y_DpBGMPLnsutZcAL0) and extract them into `dataset/pretrain/`.
+Download the pre-training datasets from [OpenTabs](https://github.com/Chao-Ye/CM2) [link](https://mega.nz/file/oqUlgbCa#AwNrJD6RDTIroZbJhMUIe5hS2y_DpBGMPLnsutZcAL0) and extract them into `dataset/pretrain/`.
 
 ### 2. Bulid Pre-training Model
 After downloading the datasets, run the pre-training script using the following command:
