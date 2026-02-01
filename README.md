@@ -36,7 +36,7 @@ This is the structure of the AixelNet project:
 + torch==1.12.1+cu116
 
 ## Datasets
-The pre-training dataset is sourced from [OpenTabs](https://mega.nz/file/oqUlgbCa#AwNrJD6RDTIroZbJhMUIe5hS2y_DpBGMPLnsutZcAL0), a large-scale repository of structured tabular data curated for pre-training tasks. Please download and extract the dataset into the `dataset/pretrain/` directory.
+The pre-training dataset is sourced from [OpenTabs](https://github.com/Chao-Ye/CM2), a large-scale repository of structured tabular data curated for pre-training tasks. Please download and extract the dataset into the `dataset/pretrain/` directory.
 
 The fine-tuning datasets are collected from multiple sources, including **Kaggle**, **UCI**, and **OpenML**, and should be placed under the `dataset/finetune/` directory.
 
@@ -44,7 +44,7 @@ Ensure that all required datasets are correctly prepared in their respective dir
 
 ## Run AixelNet model
 ### 1. **Download Pre-trained Datasets**
-Download the pre-training datasets from [OpenTabs](https://github.com/Chao-Ye/CM2) [link](https://mega.nz/file/oqUlgbCa#AwNrJD6RDTIroZbJhMUIe5hS2y_DpBGMPLnsutZcAL0) and extract them into `dataset/pretrain/`.
+Download the pre-training datasets from [link](https://mega.nz/file/oqUlgbCa#AwNrJD6RDTIroZbJhMUIe5hS2y_DpBGMPLnsutZcAL0) and extract them into `dataset/pretrain/`.
 
 ### 2. Bulid Pre-training Model
 After downloading the datasets, run the pre-training script using the following command:
