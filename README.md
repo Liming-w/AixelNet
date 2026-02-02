@@ -20,7 +20,6 @@ This is the structure of the AixelNet project:
 │   ├── trainer.py                 // Model training code
 │   ├── trainer_utils.py           // Utility functions for training
 │   ├── bo_optimizer.py            // Hyperparameter optimization using Bayesian Optimization
-├── Download_and_unzip_pretrain_datesets.sh  // Shell script for downloading pre-training datasets
 ├── run_finetune.py                // Script for fine-tuning the AixelNet
 ├── run_pretrain.py                // Script for pre-training the AixelNet
 └── requirements.txt               // Required dependencies for the project
