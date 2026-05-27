@@ -1,0 +1,14 @@
+{
+  "meta_feature_dim": 65,
+  "split_indices": [
+    0,
+    18,
+    43,
+    65
+  ],
+  "group_dims": {
+    "target": 18,
+    "feature": 25,
+    "target_feature": 22
+  }
+}
