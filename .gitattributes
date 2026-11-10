@@ -1,0 +1,5 @@
+/AixelNet-v0/input_encoder.bin filter=lfs diff=lfs merge=lfs -text
+/AixelNet-v0/pytorch_model.bin filter=lfs diff=lfs merge=lfs -text
+/AixelNet/tokenizer/bert_emb.pt filter=lfs diff=lfs merge=lfs -text
+/dataset/finetune/reg/Topo.csv filter=lfs diff=lfs merge=lfs -text
+/dataset/finetune/reg/Yprop.csv filter=lfs diff=lfs merge=lfs -text
